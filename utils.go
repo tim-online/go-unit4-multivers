@@ -65,3 +65,27 @@ func (d *DateNLNL) UnmarshalJSON(text []byte) (err error) {
 	d.Date = date.FromTime(time)
 	return err
 }
+
+type TimeWithoutTimeZone struct {
+	time.Time
+}
+
+func (t *TimeWithoutTimeZone) UnmarshalJSON(text []byte) (err error) {
+	var value string
+	err = json.Unmarshal(text, &value)
+	if err != nil {
+		return err
+	}
+
+	if value == "" {
+		return nil
+	}
+
+	layout := "2006-01-02T15:04:05"
+	t2, err := time.Parse(layout, value)
+	if err == nil {
+		*t = TimeWithoutTimeZone{Time: t2}
+	}
+
+	return err
+}
