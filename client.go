@@ -45,14 +45,15 @@ type Client struct {
 	AdministrationGroupList *AdministrationGroupListService
 
 	// Administration data
-	ProductInfoList     *ProductInfoListService
-	ProductTypeNVL      *ProductTypeNVLService
-	ProjectEntryTypeNVL *ProjectEntryTypeNVLService
-	VatCodeInfo         *VatCodeInfoService
-	VatCodeInfoList     *VatCodeInfoListService
-	ProductGroupNVL     *ProductGroupNVLService
-	ProductGroup        *ProductGroupService
+	ProductInfoList      *ProductInfoListService
+	ProductTypeNVL       *ProductTypeNVLService
+	ProjectEntryTypeNVL  *ProjectEntryTypeNVLService
+	VatCodeInfo          *VatCodeInfoService
+	VatCodeInfoList      *VatCodeInfoListService
+	ProductGroupNVL      *ProductGroupNVLService
+	ProductGroup         *ProductGroupService
 	OrganizationInfoList *OrganizationInfoListService
+	Organization         *OrganizationService
 }
 
 // RequestCompletionCallback defines the type of the request callback function
@@ -87,6 +88,7 @@ func NewClient(httpClient *http.Client, baseURL *url.URL) *Client {
 	c.ProductGroupNVL = NewProductGroupNVLService(c)
 	c.ProductGroup = NewProductGroupService(c)
 	c.OrganizationInfoList = NewOrganizationInfoListService(c)
+	c.Organization = NewOrganizationService(c)
 
 	// Commands
 
