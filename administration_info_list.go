@@ -39,4 +39,4 @@ func NewAdministrationInfoListGetResponse() *AdministrationInfoListGetResponse {
 	return &AdministrationInfoListGetResponse{}
 }
 
-type AdministrationInfoListGetResponse []Administration
+type AdministrationInfoListGetResponse []AdministrationInfo
