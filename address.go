@@ -1,5 +1,44 @@
 package multivers
 
+import (
+	"context"
+	"fmt"
+)
+
+const (
+	AddressPath = "/api/%s/Address/%s.json"
+)
+
+func NewAddressService(client *Client) *AddressService {
+	return &AddressService{Client: client}
+}
+
+type AddressService struct {
+	Client *Client
+}
+
+func (s *AddressService) Get(database string, addressGUID string, ctx context.Context) (*AddressGetResponse, error) {
+	method := "GET"
+	responseBody := NewAddressGetResponse()
+	path := fmt.Sprintf(AddressPath, database, addressGUID)
+
+	// create a new HTTP request
+	httpReq, err := s.Client.NewRequest(ctx, method, path, nil)
+	if err != nil {
+		return nil, err
+	}
+
+	// submit the request
+	_, err = s.Client.Do(httpReq, responseBody)
+	return responseBody, err
+}
+
+func NewAddressGetResponse() *AddressGetResponse {
+	return &AddressGetResponse{}
+}
+
+type AddressGetResponse Address
+
 type Address struct {
 	AddressesGuID  string   `json:"addressGuid"`
 	AddressID      int      `json:"addressId"`
