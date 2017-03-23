@@ -45,21 +45,22 @@ type Client struct {
 	AdministrationGroupList *AdministrationGroupListService
 
 	// Administration data
-	Address		     *AddressService
-	AddressList          *AddressListService
-	AddressInfo 	     *AddressInfoService
-	AddressInfoList      *AddressInfoListService
-	AddressTypeNVL       *AddressTypeNVLService
-	ProductInfoList      *ProductInfoListService
-	ProductTypeNVL       *ProductTypeNVLService
-	ProjectEntryTypeNVL  *ProjectEntryTypeNVLService
-	VatCodeInfo          *VatCodeInfoService
-	VatCodeInfoList      *VatCodeInfoListService
-	ProductGroupNVL      *ProductGroupNVLService
-	ProductGroup         *ProductGroupService
-	Organization         *OrganizationService
-	OrganizationInfo     *OrganizationInfoService
-	OrganizationInfoList *OrganizationInfoListService
+	Address                     *AddressService
+	AddressList                 *AddressListService
+	AddressInfo                 *AddressInfoService
+	AddressInfoList             *AddressInfoListService
+	AddressTypeNVL              *AddressTypeNVLService
+	ProductInfoList             *ProductInfoListService
+	ProductTypeNVL              *ProductTypeNVLService
+	ProjectEntryTypeNVL         *ProjectEntryTypeNVLService
+	VatCodeInfo                 *VatCodeInfoService
+	VatCodeInfoList             *VatCodeInfoListService
+	ProductGroupNVL             *ProductGroupNVLService
+	ProductGroup                *ProductGroupService
+	Organization                *OrganizationService
+	OrganizationInfo            *OrganizationInfoService
+	OrganizationInfoList        *OrganizationInfoListService
+	OrganizationStateNVL	    *OrganizationStateNVLService
 }
 
 // RequestCompletionCallback defines the type of the request callback function
@@ -87,7 +88,7 @@ func NewClient(httpClient *http.Client, baseURL *url.URL) *Client {
 
 	// Administration data
 	c.Address = NewAddressService(c)
-	c.AddressList =  NewAddressListService(c)
+	c.AddressList = NewAddressListService(c)
 	c.AddressInfo = NewAddressInfoService(c)
 	c.AddressInfoList = NewAddressInfoListService(c)
 	c.AddressTypeNVL = NewAddressTypeNVLService(c)
@@ -101,6 +102,7 @@ func NewClient(httpClient *http.Client, baseURL *url.URL) *Client {
 	c.Organization = NewOrganizationService(c)
 	c.OrganizationInfo = NewOrganizationInfoService(c)
 	c.OrganizationInfoList = NewOrganizationInfoListService(c)
+	c.OrganizationStateNVL = NewOrganizationStateNVLService(c)
 
 	// Commands
 
