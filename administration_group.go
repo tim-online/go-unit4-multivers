@@ -57,4 +57,9 @@ func NewAdministrationGroupGetResponse() *AdministrationGroupGetResponse {
 type AdministrationGroupGetResponse AdministrationGroup
 
 type AdministrationGroup struct {
+	Messages  []Message `json:"messages"`
+	CanChange bool      `json:"canChange"`
+	GroupID   int       `json:"groupId"`
+	IsDefault bool      `json:"isDefault"`
+	Name      string    `json:"name"`
 }
