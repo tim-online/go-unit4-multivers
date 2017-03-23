@@ -62,29 +62,3 @@ func NewOrganizationInfoListGetResponse() *OrganizationInfoListGetResponse {
 }
 
 type OrganizationInfoListGetResponse []OrganizationInfo
-
-type OrganizationInfo struct {
-	BusinessNumber      string               `json:"businessNumber"`
-	City                string               `json:"city"`
-	CocCity             string               `json:"cocCity"`
-	CocDate             *TimeWithoutTimeZone `json:"cocDate"`
-	CocRegistration     string               `json:"cocRegistration"`
-	CountryID           string               `json:"countryId"`
-	CurrencyID          string               `json:"currencyId"`
-	DateChanged         *TimeWithoutTimeZone `json:"dateChanged"`
-	DateCreated         *TimeWithoutTimeZone `json:"dateCreated"`
-	Email               string               `json:"email"`
-	Fax                 string               `json:"fax"`
-	Homepage            string               `json:"homepage"`
-	LanguageID          string               `json:"languageId"`
-	MobilePhone         string               `json:"mobilePhone"`
-	Name                string               `json:"name"`
-	OrganizationID      int                  `json:"organizationId"`
-	ShortName           string               `json:"shortName"`
-	Street1             string               `json:"street1"`
-	Street2             string               `json:"street2"`
-	Telephone           string               `json:"telephone"`
-	VatNumber           string               `json:"vatNumber"`
-	VatVerificationDate *TimeWithoutTimeZone `json:"vatVerificationDate"`
-	ZipCode             string               `json:"zipCode"`
-}
