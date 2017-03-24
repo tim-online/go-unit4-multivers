@@ -45,6 +45,7 @@ type Client struct {
 	AdministrationInfoList  *AdministrationInfoListService
 	AdministrationGroup     *AdministrationGroupService
 	AdministrationGroupList *AdministrationGroupListService
+	AdministrationGroupNVL  *AdministrationGroupNVLService
 	AdministrationNVL       *AdministrationNVLService
 
 	// Administration data
@@ -93,6 +94,7 @@ func NewClient(httpClient *http.Client, baseURL *url.URL) *Client {
 	c.AdministrationInfoList = NewAdministrationInfoListService(c)
 	c.AdministrationGroup = NewAdministrationGroupService(c)
 	c.AdministrationGroupList = NewAdministrationGroupListService(c)
+	c.AdministrationGroupNVL = NewAdministrationGroupNVLService(c)
 	c.AdministrationNVL = NewAdministrationNVLService(c)
 
 	// Administration data
