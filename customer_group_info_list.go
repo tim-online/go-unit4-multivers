@@ -16,7 +16,7 @@ func NewCustomerGroupInfoListService(client *Client) *CustomerGroupInfoListServi
 type CustomerGroupInfoListService struct {
 	Client *Client
 }
-//todo No test data in the database
+
 func (s *CustomerGroupInfoListService) Get(database string, requestParams *CustomerGroupInfoListGetParams, ctx context.Context) (*CustomerGroupInfoListGetResponse, error) {
 	method := "GET"
 	responseBody := NewCustomerGroupInfoListGetResponse()
