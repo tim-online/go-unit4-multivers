@@ -28,8 +28,11 @@ func (s *CustomerGroupInfoService) Get(database string, customerGroupID int,requ
 		return nil, err
 	}
 
-	// Process query parameters
-	addQueryParamsToRequest(requestParams, httpReq, false)
+	if requestParams.FiscalYear != 0 {
+		// Process query parameters
+		addQueryParamsToRequest(requestParams, httpReq, false)
+	}
+
 
 	// submit the request
 	_, err = s.Client.Do(httpReq, responseBody)
