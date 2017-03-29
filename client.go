@@ -63,16 +63,17 @@ type Client struct {
 	CustomerGroupNVL	    *CustomerGroupNVLService
 	CustomerNVL                 *CustomerNVLService
 	CustomerPersonNVL             *CustomerPersonNVLService
-	ProductInfo                 *ProductInfoService
-	ProductInfoList             *ProductInfoListService
-	ProductTypeNVL              *ProductTypeNVLService
-	ProjectEntryTypeNVL         *ProjectEntryTypeNVLService
 	VatCodeInfo                 *VatCodeInfoService
 	VatCodeInfoList             *VatCodeInfoListService
 	Product                     *ProductService
 	ProductDiscountGroupNVL     *ProductDiscountGroupNVLService
-	ProductGroupNVL             *ProductGroupNVLService
 	ProductGroup                *ProductGroupService
+	ProductGroupNVL             *ProductGroupNVLService
+	ProductGroupRelationInfo    *ProductGroupRelationInfoService
+	ProductInfo                 *ProductInfoService
+	ProductInfoList             *ProductInfoListService
+	ProductTypeNVL              *ProductTypeNVLService
+	ProjectEntryTypeNVL         *ProjectEntryTypeNVLService
 	Organization                *OrganizationService
 	OrganizationInfo            *OrganizationInfoService
 	OrganizationInfoList        *OrganizationInfoListService
@@ -125,14 +126,15 @@ func NewClient(httpClient *http.Client, baseURL *url.URL) *Client {
 	c.CustomerPersonNVL = NewCustomerPersonNVLService(c)
 	c.Product = NewProductService(c)
 	c.ProductDiscountGroupNVL = NewProductDiscountGroupNVLService(c)
+	c.ProductGroup = NewProductGroupService(c)
+	c.ProductGroupNVL = NewProductGroupNVLService(c)
+	c.ProductGroupRelationInfo = NewProductGroupRelationInfoService(c)
 	c.ProductInfo = NewProductInfoService(c)
 	c.ProductInfoList = NewProductInfoListService(c)
 	c.ProductTypeNVL = NewProductTypeNVLService(c)
 	c.ProjectEntryTypeNVL = NewProjectEntryTypeNVLService(c)
 	c.VatCodeInfo = NewVatCodeInfoService(c)
 	c.VatCodeInfoList = NewVatCodeInfoListService(c)
-	c.ProductGroupNVL = NewProductGroupNVLService(c)
-	c.ProductGroup = NewProductGroupService(c)
 	c.Organization = NewOrganizationService(c)
 	c.OrganizationInfo = NewOrganizationInfoService(c)
 	c.OrganizationInfoList = NewOrganizationInfoListService(c)
