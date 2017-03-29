@@ -6,7 +6,7 @@ import (
 )
 
 const (
-	CustomerInfoPath = "/api/%s/CustomerInfo/%d.json"
+	CustomerInfoPath = "/api/%s/CustomerInfo/%s.json"
 )
 
 func NewCustomerInfoService(client *Client) *CustomerInfoService {
