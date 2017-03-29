@@ -1,14 +1,12 @@
 package multivers
 
-// https://api.online.unit4.nl/V16/Help/Api/GET-api-database-ProductGroup-productGroupId
-
 import (
 	"context"
 	"fmt"
 )
 
 const (
-	ProductGroupPath = "/api/%s/ProductGroup/%d.json"
+	ProductGroupPath = "/api/%s/ProductGroup/%s.json"
 )
 
 func NewProductGroupService(client *Client) *ProductGroupService {
@@ -19,7 +17,7 @@ type ProductGroupService struct {
 	Client *Client
 }
 
-func (s *ProductGroupService) Get(database string, productGroupID int, ctx context.Context) (*ProductGroupGetResponse, error) {
+func (s *ProductGroupService) Get(database string, productGroupID string, ctx context.Context) (*ProductGroupGetResponse, error) {
 	method := "GET"
 	responseBody := NewProductGroupGetResponse()
 	path := fmt.Sprintf(ProductGroupPath, database, productGroupID)
