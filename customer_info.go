@@ -17,7 +17,7 @@ type CustomerInfoService struct {
 	Client *Client
 }
 
-func (s *CustomerInfoService) Get(database string, customerID int, ctx context.Context) (*CustomerInfoGetResponse, error) {
+func (s *CustomerInfoService) Get(database string, customerID string, ctx context.Context) (*CustomerInfoGetResponse, error) {
 	method := "GET"
 	responseBody := NewCustomerInfoGetResponse()
 	path := fmt.Sprintf(CustomerInfoPath, database, customerID)
