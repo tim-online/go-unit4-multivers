@@ -1,5 +1,44 @@
 package multivers
 
+import (
+	"context"
+	"fmt"
+)
+
+const (
+	CustomerInfoPath = "/api/%s/CustomerInfo/%d.json"
+)
+
+func NewCustomerInfoService(client *Client) *CustomerInfoService {
+	return &CustomerInfoService{Client: client}
+}
+
+type CustomerInfoService struct {
+	Client *Client
+}
+
+func (s *CustomerInfoService) Get(database string, customerID int, ctx context.Context) (*CustomerInfoGetResponse, error) {
+	method := "GET"
+	responseBody := NewCustomerInfoGetResponse()
+	path := fmt.Sprintf(CustomerInfoPath, database, customerID)
+
+	// create a new HTTP request
+	httpReq, err := s.Client.NewRequest(ctx, method, path, nil)
+	if err != nil {
+		return nil, err
+	}
+
+	// submit the request
+	_, err = s.Client.Do(httpReq, responseBody)
+	return responseBody, err
+}
+
+func NewCustomerInfoGetResponse() *CustomerInfoGetResponse {
+	return &CustomerInfoGetResponse{}
+}
+
+type CustomerInfoGetResponse CustomerInfo
+
 type CustomerInfo struct {
 	AccountManagerID    string               `json:"accountManagerId"`
 	ApplyOrderSurcharge bool                 `json:"applyOrderSurcharge"`
