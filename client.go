@@ -54,6 +54,7 @@ type Client struct {
 	AddressInfo                 *AddressInfoService
 	AddressInfoList             *AddressInfoListService
 	AddressTypeNVL              *AddressTypeNVLService
+	CustomerInfoList            *CustomerInfoListService
 	CustomerGroupInfo           *CustomerGroupInfoService
 	CustomerGroupInfoList       *CustomerGroupInfoListService
 	CustomerGroupNVL	    *CustomerGroupNVLService
@@ -106,6 +107,7 @@ func NewClient(httpClient *http.Client, baseURL *url.URL) *Client {
 	c.AddressInfo = NewAddressInfoService(c)
 	c.AddressInfoList = NewAddressInfoListService(c)
 	c.AddressTypeNVL = NewAddressTypeNVLService(c)
+	c.CustomerInfoList = NewCustomerInfoListService(c)
 	c.CustomerGroupInfo = NewCustomerGroupInfoService(c)
 	c.CustomerGroupInfoList = NewCustomerGroupInfoListService(c)
 	c.CustomerGroupNVL = NewCustomerGroupNVLService(c)
