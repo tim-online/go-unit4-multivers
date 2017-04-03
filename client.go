@@ -80,6 +80,7 @@ type Client struct {
 	OrderChargeVatTypeNVL       *OrderChargeVatTypeNVLService
 	OrderContactPersonNVL       *OrderContactPersonNVLService
 	OrderLineTypeNVL            *OrderLineTypeNVLService
+	OrderStateNVL		    *OrderStateNVLService
 	Organization                *OrganizationService
 	OrganizationInfo            *OrganizationInfoService
 	OrganizationInfoList        *OrganizationInfoListService
@@ -149,6 +150,7 @@ func NewClient(httpClient *http.Client, baseURL *url.URL) *Client {
 	c.OrderContactPersonNVL = NewOrderContactPersonNVLService(c)
 	c.OrderChargeVatTypeNVL = NewOrderChargeVatTypeNVLService(c)
 	c.OrderLineTypeNVL = NewOrderLineTypeNVLService(c)
+	c.OrderStateNVL = NewOrderStateNVLService(c)
 	c.Organization = NewOrganizationService(c)
 	c.OrganizationInfo = NewOrganizationInfoService(c)
 	c.OrganizationInfoList = NewOrganizationInfoListService(c)
