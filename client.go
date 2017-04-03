@@ -83,6 +83,7 @@ type Client struct {
 	OrganizationNVL             *OrganizationNVLService
 	OrganizationStateNVL	    *OrganizationStateNVLService
 	OrganizationDocumentOutput  *OrganizationDocumentsOutputService
+	Warehouse		    *WarehouseService
 }
 
 // RequestCompletionCallback defines the type of the request callback function
@@ -147,6 +148,7 @@ func NewClient(httpClient *http.Client, baseURL *url.URL) *Client {
 	c.OrganizationNVL = NewOrganizationNVLService(c)
 	c.OrganizationStateNVL = NewOrganizationStateNVLService(c)
 	c.OrganizationDocumentOutput = NewOrganizationDocumentsOutputService(c)
+	c.Warehouse = NewWarehouseService(c)
 
 	// Commands
 
