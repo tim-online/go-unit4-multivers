@@ -39,29 +39,7 @@ func NewProductGetResponse() *ProductGetResponse {
 
 type ProductGetResponse Product
 
-//TODO is the name correctly formatted?
-type CustomPropertiesProduct struct {
-	ARTIKEL_VERPAKKING      string  `json:"ARTIKEL.VERPAKKING"`
-	ARTIKEL_OMVERPAKKING    string  `json:"ARTIKEL.OMVERPAKKING"`
-	ARTIKEL_OMVPAANTAL      float64 `json:"ARTIKEL.OMVPAANTAL"`
-	ARTIKEL_NUMINVERPAKKING float64 `json:"ARTIKEL.NUMINVERPAKKING"`
-	ARTIKEL_GEVARENKLASSE   string  `json:"ARTIKEL.GEVARENKLASSE"`
-	ARTIKEL_TOELATING       string  `json:"ARTIKEL.TOELATING"`
-	ARTIKEL_UNNR            string  `json:"ARTIKEL.UNNR"`
-	ARTIKEL_STOFNAAM        string  `json:"ARTIKEL.STOFNAAM"`
-	ARTIKEL_KAARTNR         string  `json:"ARTIKEL.KAARTNR"`
-	ARTIKEL_MENGBAAR        string  `json:"ARTIKEL.MENGBAAR"`
-	ARTIKEL_KLEUR           string  `json:"ARTIKEL.KLEUR"`
-	ARTIKEL_LOODS           string  `json:"ARTIKEL.LOODS"`
-	ARTIKEL_KLASSE          string  `json:"ARTIKEL.KLASSE"`
-	ARTIKEL_FLEVO           string  `json:"ARTIKEL.FLEVO"`
-	ARTIKEL_STIKSTOF        string  `json:"ARTIKEL.STIKSTOF"`
-	ARTIKEL_FOSFAAT         string  `json:"ARTIKEL.FOSFAAT"`
-	ARTIKEL_DREMPEL         float64 `json:"ARTIKEL.DREMPEL"`
-	ARTIKEL_LINK            string  `json:"ARTIKEL.LINK"`
-	ARTIKEL_CATEGORIE       string  `json:"ARTIKEL.CATEGORIE"`
-	ARTIKEL_TOELAT          string  `json:"ARTIKEL.TOELAT"`
-}
+type CustomPropertiesProduct map[string] interface{}
 
 type Stock struct {
 	Messages         []Message `json:"messages"`
