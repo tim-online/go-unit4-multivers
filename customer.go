@@ -39,17 +39,6 @@ func NewCustomerGetResponse() *CustomerGetResponse {
 
 type CustomerGetResponse Customer
 
-type CustomProperties struct {
-	//TODO is the name correctly formatted?
-	REL_DEB_BRANCHE          string               `json:"REL_DEB.BRANCHE"`
-	REL_DEB_LICENTIENUMMER   string               `json:"REL_DEB.LICENTIENUMMER"`
-	REL_DEB_OPTICROP         string               `json:"REL_DEB.OPTICROP"`
-	REL_DEB_VERTEGENWOORDIGE string               `json:"REL_DEB.VERTEGENWOORDIGE"`
-	REL_DEB_EMAILFACTUUR     string               `json:"REL_DEB.EMAILFACTUUR"`
-	REL_DEB_EMAILDSB         string               `json:"REL_DEB.EMAILDSB"`
-	REL_DEB_VERVALDATUM      *TimeWithoutTimeZone `json:"REL_DEB.VERVALDATUM"`
-}
-
 type Customer struct {
 	AccountManagerID                    string               `json:"accountManagerId"`
 	Addresses                           []Address            `json:"addresses"`
@@ -68,6 +57,7 @@ type Customer struct {
 	CreditLimit                         float64              `json:"creditLimit"`
 	CreditSqueezeID                     string               `json:"creditSqueezeId"`
 	CurrencyID                          string               `json:"currencyId"`
+	CustomerGroupId			    int                  `json:"customerGroupId"`
 	CustomerID                          string               `json:"customerId"`
 	CustomerStateID                     string               `json:"customerStateId"`
 	Database                            string               `json:"database"`
@@ -79,7 +69,7 @@ type Customer struct {
 	Fax                                 string               `json:"fax"`
 	FullAddress                         string               `json:"fullAddress"`
 	FullDeliveryAddress                 string               `json:"fullDeliveryAddress"`
-	GoogleMapsDirectionsUrl             string               `json:"fullDeliveryAddress"`
+	GoogleMapsDirectionsUrl             string               `json:"googleMapsDirectionsUrl"`
 	GoogleMapsUrl                       string               `json:"googleMapsUrl"`
 	HasOutstandingBalance               bool                 `json:"hasOutstandingBalance"`
 	Homepage                            string               `json:"homepage"`
