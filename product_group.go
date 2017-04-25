@@ -1,7 +1,5 @@
 package multivers
 
-// https://api.online.unit4.nl/V16/Help/Api/GET-api-database-ProductGroup-productGroupId
-
 import (
 	"context"
 	"fmt"

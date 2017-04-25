@@ -1,5 +1,44 @@
 package multivers
 
+import (
+	"context"
+	"fmt"
+)
+
+const (
+	ProductInfoPath = "/api/%s/ProductInfo/%s.json"
+)
+
+func NewProductInfoService(client *Client) *ProductInfoService {
+	return &ProductInfoService{Client: client}
+}
+
+type ProductInfoService struct {
+	Client *Client
+}
+
+func (s *ProductInfoService) Get(database string, productID string, ctx context.Context) (*ProductInfoGetResponse, error) {
+	method := "GET"
+	responseBody := NewProductInfoGetResponse()
+	path := fmt.Sprintf(ProductInfoPath, database, productID)
+
+	// create a new HTTP request
+	httpReq, err := s.Client.NewRequest(ctx, method, path, nil)
+	if err != nil {
+		return nil, err
+	}
+
+	// submit the request
+	_, err = s.Client.Do(httpReq, responseBody)
+	return responseBody, err
+}
+
+func NewProductInfoGetResponse() *ProductInfoGetResponse {
+	return &ProductInfoGetResponse{}
+}
+
+type ProductInfoGetResponse ProductInfo
+
 type ProductInfo struct {
 	VatCodeID          int      `json:"vatCodeId"`
 	EanCode            string   `json:"eanCode"`

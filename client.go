@@ -41,17 +41,55 @@ type Client struct {
 
 	// General data
 	Administration          *AdministrationService
+	AdministrationInfo      *AdministrationInfoService
 	AdministrationInfoList  *AdministrationInfoListService
+	AdministrationGroup     *AdministrationGroupService
 	AdministrationGroupList *AdministrationGroupListService
+	AdministrationGroupNVL  *AdministrationGroupNVLService
+	AdministrationNVL       *AdministrationNVLService
 
 	// Administration data
-	ProductInfoList     *ProductInfoListService
-	ProductTypeNVL      *ProductTypeNVLService
-	ProjectEntryTypeNVL *ProjectEntryTypeNVLService
-	VatCodeInfo         *VatCodeInfoService
-	VatCodeInfoList     *VatCodeInfoListService
-	ProductGroupNVL     *ProductGroupNVLService
-	ProductGroup        *ProductGroupService
+	Address                     *AddressService
+	AddressList                 *AddressListService
+	AddressInfo                 *AddressInfoService
+	AddressInfoList             *AddressInfoListService
+	AddressTypeNVL              *AddressTypeNVLService
+	CompanyDetails              *CompanyDetailsService
+	CompanyDetailsInfo	    *CompanyDetailsInfoService
+	Customer                    *CustomerService
+	CustomerChargeVatTypeNVL    *CustomerChargeVatTypeNVLService
+	CustomerInfo		    *CustomerInfoService
+	CustomerInfoList            *CustomerInfoListService
+	CustomerGroupInfo           *CustomerGroupInfoService
+	CustomerGroupInfoList       *CustomerGroupInfoListService
+	CustomerGroupNVL	    *CustomerGroupNVLService
+	CustomerNVL                 *CustomerNVLService
+	CustomerPersonNVL           *CustomerPersonNVLService
+	VatCodeInfo                 *VatCodeInfoService
+	VatCodeInfoList             *VatCodeInfoListService
+	Product                     *ProductService
+	ProductDiscountGroupNVL     *ProductDiscountGroupNVLService
+	ProductGroup                *ProductGroupService
+	ProductGroupNVL             *ProductGroupNVLService
+	ProductGroupRelationInfo    *ProductGroupRelationInfoService
+	ProductInfo                 *ProductInfoService
+	ProductInfoList             *ProductInfoListService
+	ProductNVL                  *ProductNVLService
+	ProductTypeNVL              *ProductTypeNVLService
+	ProjectEntryTypeNVL         *ProjectEntryTypeNVLService
+	OrderChargeVatTypeNVL       *OrderChargeVatTypeNVLService
+	OrderContactPersonNVL       *OrderContactPersonNVLService
+	OrderLineTypeNVL            *OrderLineTypeNVLService
+	OrderStateNVL		    *OrderStateNVLService
+	OrderTypeNVL                *OrderTypeNVLService
+	Organization                *OrganizationService
+	OrganizationInfo            *OrganizationInfoService
+	OrganizationInfoList        *OrganizationInfoListService
+	OrganizationNVL             *OrganizationNVLService
+	OrganizationStateNVL	    *OrganizationStateNVLService
+	OrganizationDocumentOutput  *OrganizationDocumentsOutputService
+	Warehouse		    *WarehouseService
+	WarehouseNVL                *WarehouseNVLService
 }
 
 // RequestCompletionCallback defines the type of the request callback function
@@ -74,17 +112,55 @@ func NewClient(httpClient *http.Client, baseURL *url.URL) *Client {
 
 	// General data
 	c.Administration = NewAdministrationService(c)
+	c.AdministrationInfo = NewAdministrationInfoService(c)
 	c.AdministrationInfoList = NewAdministrationInfoListService(c)
+	c.AdministrationGroup = NewAdministrationGroupService(c)
 	c.AdministrationGroupList = NewAdministrationGroupListService(c)
+	c.AdministrationGroupNVL = NewAdministrationGroupNVLService(c)
+	c.AdministrationNVL = NewAdministrationNVLService(c)
 
 	// Administration data
+	c.Address = NewAddressService(c)
+	c.AddressList = NewAddressListService(c)
+	c.AddressInfo = NewAddressInfoService(c)
+	c.AddressInfoList = NewAddressInfoListService(c)
+	c.AddressTypeNVL = NewAddressTypeNVLService(c)
+	c.CompanyDetails = NewCompanyDetailsService(c)
+	c.CompanyDetailsInfo = NewCompanyDetailsInfoService(c)
+	c.Customer = NewCustomerService(c)
+	c.CustomerChargeVatTypeNVL = NewCustomerChargeVatTypeNVLService(c)
+	c.CustomerInfo = NewCustomerInfoService(c)
+	c.CustomerInfoList = NewCustomerInfoListService(c)
+	c.CustomerGroupInfo = NewCustomerGroupInfoService(c)
+	c.CustomerGroupInfoList = NewCustomerGroupInfoListService(c)
+	c.CustomerGroupNVL = NewCustomerGroupNVLService(c)
+	c.CustomerNVL = NewCustomerNVLService(c)
+	c.CustomerPersonNVL = NewCustomerPersonNVLService(c)
+	c.Product = NewProductService(c)
+	c.ProductDiscountGroupNVL = NewProductDiscountGroupNVLService(c)
+	c.ProductGroup = NewProductGroupService(c)
+	c.ProductGroupNVL = NewProductGroupNVLService(c)
+	c.ProductGroupRelationInfo = NewProductGroupRelationInfoService(c)
+	c.ProductInfo = NewProductInfoService(c)
 	c.ProductInfoList = NewProductInfoListService(c)
+	c.ProductNVL = NewProductNVLService(c)
 	c.ProductTypeNVL = NewProductTypeNVLService(c)
 	c.ProjectEntryTypeNVL = NewProjectEntryTypeNVLService(c)
 	c.VatCodeInfo = NewVatCodeInfoService(c)
 	c.VatCodeInfoList = NewVatCodeInfoListService(c)
-	c.ProductGroupNVL = NewProductGroupNVLService(c)
-	c.ProductGroup = NewProductGroupService(c)
+	c.OrderContactPersonNVL = NewOrderContactPersonNVLService(c)
+	c.OrderChargeVatTypeNVL = NewOrderChargeVatTypeNVLService(c)
+	c.OrderLineTypeNVL = NewOrderLineTypeNVLService(c)
+	c.OrderStateNVL = NewOrderStateNVLService(c)
+	c.OrderTypeNVL = NewOrderTypeNVLService(c)
+	c.Organization = NewOrganizationService(c)
+	c.OrganizationInfo = NewOrganizationInfoService(c)
+	c.OrganizationInfoList = NewOrganizationInfoListService(c)
+	c.OrganizationNVL = NewOrganizationNVLService(c)
+	c.OrganizationStateNVL = NewOrganizationStateNVLService(c)
+	c.OrganizationDocumentOutput = NewOrganizationDocumentsOutputService(c)
+	c.Warehouse = NewWarehouseService(c)
+	c.WarehouseNVL = NewWarehouseNVLService(c)
 
 	// Commands
 
